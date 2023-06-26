@@ -39,13 +39,11 @@ export const Phonebook = () => {
     setContacts(listWithoutDeletedContact);
   };
 
-  {
-    return (
-      <div className={css.sectionPhonebook}>
-        <h1>Phonebook</h1>
-        <ContactsForm handleSubmit={handleSubmit} />
-        <ContactsList contacts={contacts} onDelete={deleteContact} />
-      </div>
-    );
-  }
+  return (
+    <div className={css.sectionPhonebook}>
+      <h1>Phonebook</h1>
+      <ContactsForm handleSubmit={handleSubmit} />
+      <ContactsList contacts={contacts} onDelete={deleteContact} />
+    </div>
+  );
 };
