@@ -1,13 +1,11 @@
-import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { addFilter } from 'redux/filterSlice';
+export const Filter = () => {
+  const dispatch = useDispatch();
 
-export const Filter = ({ handleFilter }) => {
   const inputFilterHandler = evt => {
-    handleFilter(evt.target.value);
+    dispatch(addFilter(evt.target.value));
   };
-
   return <input type="text" name="filter" onChange={inputFilterHandler} />;
 };
 
-Filter.propTypes = {
-  onFilter: PropTypes.func,
-};
