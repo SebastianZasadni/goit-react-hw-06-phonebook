@@ -51,7 +51,7 @@ console.log(contacts)
           <li>You have no contacts.</li>
         )}
       </ul>
-      {localStorage.length !== 1 && <Filter />}
+      {contacts.length !== 0 && <Filter />}
     </div>
   );
 };
