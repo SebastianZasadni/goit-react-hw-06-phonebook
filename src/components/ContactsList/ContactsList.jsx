@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { getContacts, getFilter } from 'redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
