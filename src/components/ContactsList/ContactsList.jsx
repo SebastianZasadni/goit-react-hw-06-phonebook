@@ -29,23 +29,27 @@ export const ContactsList = () => {
     <div className={css.sectionContacts}>
       <h3>Contacts</h3>
       <ul className={css.contactsList}>
-        {filter
-          ? filteredContacts.map(c => (
-              <li key={c.id}>
-                {c.name}: {c.number}
-                <button type="button" onClick={() => handleDelete(c.id)}>
-                  Delete
-                </button>
-              </li>
-            ))
-          : contacts.map(c => (
-              <li key={c.id}>
-                {c.name}: {c.number}
-                <button type="button" onClick={() => handleDelete(c.id)}>
-                  Delete
-                </button>
-              </li>
-            ))}
+        {filter ? (
+          filteredContacts.map(c => (
+            <li key={c.id}>
+              {c.name}: {c.number}
+              <button type="button" onClick={() => handleDelete(c.id)}>
+                Delete
+              </button>
+            </li>
+          ))
+        ) : contacts ? (
+          contacts.map(c => (
+            <li key={c.id}>
+              {c.name}: {c.number}
+              <button type="button" onClick={() => handleDelete(c.id)}>
+                Delete
+              </button>
+            </li>
+          ))
+        ) : (
+          <li>You have no contacts.</li>
+        )}
       </ul>
       {contacts.length > 0 && <Filter />}
     </div>
