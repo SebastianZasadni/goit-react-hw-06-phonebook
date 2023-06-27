@@ -24,7 +24,7 @@ export const ContactsList = () => {
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };
-
+console.log(contacts)
   return (
     <div className={css.sectionContacts}>
       <h3>Contacts</h3>
@@ -51,7 +51,7 @@ export const ContactsList = () => {
           <li>You have no contacts.</li>
         )}
       </ul>
-      {contacts && <Filter />}
+      {localStorage.length !== 1 && <Filter />}
     </div>
   );
 };
