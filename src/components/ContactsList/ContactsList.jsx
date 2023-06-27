@@ -51,7 +51,7 @@ export const ContactsList = () => {
           <li>You have no contacts.</li>
         )}
       </ul>
-      {contacts.length > 0 && <Filter />}
+      {contacts && <Filter />}
     </div>
   );
 };
