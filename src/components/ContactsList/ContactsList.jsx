@@ -4,7 +4,7 @@ import { getContacts, getFilter } from 'redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { deleteContact } from 'redux/contactsSlice';
 import { Filter } from 'components/Filter/Filter';
-import css from '../Phonebook/Phonebook.module.css';
+import css from './ContactsList.module.css';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ export const ContactsList = () => {
   const handleDelete = id => {
     dispatch(deleteContact(id));
   };
-console.log(contacts)
+
   return (
     <div className={css.sectionContacts}>
       <h3>Contacts</h3>
@@ -51,7 +51,7 @@ console.log(contacts)
           <li>You have no contacts.</li>
         )}
       </ul>
-      {contacts.length !== 0 && <Filter />}
+      <Filter />
     </div>
   );
 };

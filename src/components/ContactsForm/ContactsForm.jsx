@@ -1,10 +1,12 @@
 import { nanoid } from 'nanoid';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsSlice';
-import css from '../Phonebook/Phonebook.module.css';
+import { getContacts } from 'redux/selectors';
+import css from './ContactsForm.module.css';
 
 export const ContactsForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -12,7 +14,10 @@ export const ContactsForm = () => {
     const name = form.elements.name.value;
     const number = form.elements.number.value;
     const contact = { id: nanoid(), name: name, number: number };
-    dispatch(addContact(contact));
+    contacts.some(contact => contact.name === name)
+      ? alert('You already have this contact.')
+      : dispatch(addContact(contact));
+
     form.reset();
   };
 
