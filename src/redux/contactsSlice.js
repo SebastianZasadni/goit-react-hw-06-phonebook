@@ -6,7 +6,7 @@ const contactsInitialState = localContacts;
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState: contactsInitialState ? contactsInitialState : [],
+  initialState: contactsInitialState ?? [],
   reducers: {
     addContact(state, action) {
       state.push(action.payload);

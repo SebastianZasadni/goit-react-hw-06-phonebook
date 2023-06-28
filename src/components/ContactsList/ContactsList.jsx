@@ -26,7 +26,7 @@ export const ContactsList = () => {
   };
 
   return (
-    <div className={css.sectionContacts}>
+    contacts && <div className={css.sectionContacts}>
       <h3>Contacts</h3>
       <ul className={css.contactsList}>
         {filter ? (
