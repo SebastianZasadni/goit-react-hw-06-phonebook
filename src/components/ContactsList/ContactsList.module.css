@@ -9,3 +9,6 @@ li {
   flex-direction: column;
   gap: 10px;
 }
+.sectionContacts {
+  text-align: center;
+}
