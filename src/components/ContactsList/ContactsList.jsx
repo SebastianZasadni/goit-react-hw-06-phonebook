@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getContacts, getFilter } from 'redux/selectors';
+import { selectContacts, selectFilter } from 'redux/selectors';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { deleteContact } from 'redux/contactsSlice';
 import { Filter } from 'components/Filter/Filter';
@@ -8,8 +8,8 @@ import css from './ContactsList.module.css';
 
 export const ContactsList = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(getContacts);
-  const filter = useSelector(getFilter);
+  const contacts = useSelector(selectContacts);
+  const filter = useSelector(selectFilter);
 
   useEffect(() => {
     localStorage.setItem('contacts', JSON.stringify(contacts));
