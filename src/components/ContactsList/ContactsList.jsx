@@ -25,33 +25,31 @@ export const ContactsList = () => {
     dispatch(deleteContact(id));
   };
 
-  return (
-    contacts && <div className={css.sectionContacts}>
+  return contacts.length !== 0 ? (
+    <div className={css.sectionContacts}>
       <h3>Contacts</h3>
       <ul className={css.contactsList}>
-        {filter ? (
-          filteredContacts.map(c => (
-            <li key={c.id}>
-              {c.name}: {c.number}
-              <button type="button" onClick={() => handleDelete(c.id)}>
-                Delete
-              </button>
-            </li>
-          ))
-        ) : contacts ? (
-          contacts.map(c => (
-            <li key={c.id}>
-              {c.name}: {c.number}
-              <button type="button" onClick={() => handleDelete(c.id)}>
-                Delete
-              </button>
-            </li>
-          ))
-        ) : (
-          <li>You have no contacts.</li>
-        )}
+        {filter
+          ? filteredContacts.map(c => (
+              <li key={c.id}>
+                {c.name}: {c.number}
+                <button type="button" onClick={() => handleDelete(c.id)}>
+                  Delete
+                </button>
+              </li>
+            ))
+          : contacts.map(c => (
+              <li key={c.id}>
+                {c.name}: {c.number}
+                <button type="button" onClick={() => handleDelete(c.id)}>
+                  Delete
+                </button>
+              </li>
+            ))}
       </ul>
       <Filter />
     </div>
+  ) : (
+    <p>You have no contacts.</p>
   );
 };
